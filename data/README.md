@@ -49,7 +49,7 @@ CC0 1.0 - Public domain
 **Citation**
 Basu, Deepankar, 2022, "World Profit Rates, 1960-2019", https://doi.org/10.7910/DVN/2OL4IW, Harvard Dataverse, V1
 
-## WIOD/\*
+## WIOD/\* and SEA-WIOD
 
 Downloaded from [World Input-Output Database](https://www.rug.nl/ggdc/valuechain/wiod/wiod-2016-release).
 
