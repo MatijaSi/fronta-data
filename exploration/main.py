@@ -83,43 +83,39 @@ def plot_multiline(
     plt.close(1)
 
 
-plot = False
-if plot == True:
-    data = epwt[["Country", "Year", "ROP", "OCC", "ROE", "TCC"]][
-        epwt["Country"].isin(["Poland", "Germany", "Slovenia"])
-    ]
+data = epwt[["Country", "Year", "ROP", "OCC", "ROE", "TCC"]][
+    epwt["Country"].isin(["Germany", "Slovenia"])
+]
 
-    byCountry = df_split_by_field(data, "Country")
+byCountry = df_split_by_field(data, "Country")
 
-    minYear = max([df["Year"].min() for df in byCountry])
+minYear = max([df["Year"].min() for df in byCountry])
 
-    byCountry = [df[df["Year"] >= minYear] for df in byCountry]
+byCountry = [df[df["Year"] >= minYear] for df in byCountry]
 
-    plot_multiline(
-        byCountry, "Year", "ROE", "Country", "figures/ROE.png", "Mera izkoriščanja"
-    )
+plot_multiline(
+    byCountry, "Year", "ROE", "Country", "figures/ROE.png", "Mera izkoriščanja"
+)
 
-    plot_multiline(
-        byCountry,
-        "Year",
-        "OCC",
-        "Country",
-        "figures/OCC.png",
-        "Organska kompozicija kapitala",
-    )
+plot_multiline(
+    byCountry,
+    "Year",
+    "OCC",
+    "Country",
+    "figures/OCC.png",
+    "Organska kompozicija kapitala",
+)
 
-    plot_multiline(
-        byCountry, "Year", "ROP", "Country", "figures/ROP.png", "Profitna mera"
-    )
+plot_multiline(byCountry, "Year", "ROP", "Country", "figures/ROP.png", "Profitna mera")
 
-    plot_multiline(
-        byCountry,
-        "Year",
-        "TCC",
-        "Country",
-        "figures/TCC.png",
-        "Tehnična kompozicija kapitala",
-    )
+plot_multiline(
+    byCountry,
+    "Year",
+    "TCC",
+    "Country",
+    "figures/TCC.png",
+    "Tehnična kompozicija kapitala",
+)
 
 if False:
     print(
@@ -156,6 +152,15 @@ arop = pd.DataFrame(yearly, columns=["Year", "ROP"])
 
 print(arop.to_string())
 
+plt.figure(1)
 plt.title("Svetovna profitna mera (v %)")
-plt.plot(arop["Year"], arop["ROP"] * 100)
+plt.plot(arop["Year"], arop["ROP"] * 100, label="Svet")
+
+slo = epwt[epwt["Country"] == "Slovenia"][["Year", "ROP"]].dropna()
+germ = epwt[epwt["Country"] == "Germany"][["Year", "ROP"]].dropna()
+
+plt.plot(slo["Year"], slo["ROP"] * 100, label="Slovenia")
+plt.plot(germ["Year"], germ["ROP"] * 100, label="Germany")
+plt.legend()
 plt.savefig("figures/AROP.png")
+plt.close(1)
