@@ -150,7 +150,6 @@ yearly = [{"Year": year, "ROP": calcRop(epwt, year)} for year in years]
 
 arop = pd.DataFrame(yearly, columns=["Year", "ROP"])
 
-print(arop.to_string())
 
 plt.figure(1)
 plt.title("Svetovna profitna mera (v %)")
