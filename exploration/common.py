@@ -11,20 +11,18 @@ def df_split_by_field(df: pd.DataFrame, field: str) -> List[pd.DataFrame]:
     return dfs
 
 
-def plot_multiline(
-    dfs: List[pd.DataFrame], x: str, y: str, label: str, filename: str, title: str
-):
-    plt.figure(1)
-    plt.title(title)
+def plot_multiline(dfs: List[pd.DataFrame], x: str, y: str, label: str, title: str):
+    fig, ax = plt.subplots()
+
+    ax.set_title(title)
 
     for df in dfs:
-        plt.plot(
+        ax.plot(
             df[x],
             df[y],
             label=df[label].min(),
         )
 
-    plt.legend()
+    ax.legend()
 
-    plt.savefig(filename)
-    plt.close(1)
+    return fig
