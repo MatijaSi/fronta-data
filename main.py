@@ -3,8 +3,8 @@ from typing import List
 import pandas as pd
 import matplotlib.pyplot as plt
 
-epwt = pd.read_excel("../data/EPWT 7.0 FV.xlsx", "EPWT7.0")
-oecd_ppp = pd.read_excel("../data/OECD_PPP.xlsx", "OECD_PPP")
+epwt = pd.read_excel("data/EPWT 7.0 FV.xlsx", "EPWT7.0")
+oecd_ppp = pd.read_excel("data/OECD_PPP.xlsx", "OECD_PPP")
 
 oecd_ppp["Countrycode"] = oecd_ppp["LOCATION"]
 oecd_ppp["Year"] = oecd_ppp["TIME"]

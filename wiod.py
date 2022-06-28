@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # WIOD Data
-sea_wiod = pd.read_excel("../data/SEA-WIOD.xlsx", "DATA")
+sea_wiod = pd.read_excel("data/SEA-WIOD.xlsx", "DATA")
 
 sea_rop_raw = []
 

@@ -12,8 +12,8 @@ st.set_page_config(page_title="Fronta.org: Data", layout="wide")
 
 st.title("Fronta.org: Data")
 
-epwt = pd.read_excel("../data/EPWT 7.0 FV.xlsx", "EPWT7.0")
-oecd_ppp = pd.read_excel("../data/OECD_PPP.xlsx", "OECD_PPP")
+epwt = pd.read_excel("data/EPWT 7.0 FV.xlsx", "EPWT7.0")
+oecd_ppp = pd.read_excel("data/OECD_PPP.xlsx", "OECD_PPP")
 
 oecd_ppp = prepare_oecd_ppp(oecd_ppp)
 epwt = prepare_epwt(epwt, oecd_ppp)
