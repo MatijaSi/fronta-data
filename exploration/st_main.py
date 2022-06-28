@@ -8,9 +8,7 @@ from oecd_ppp import prepare_oecd_ppp
 from epwt import prepare_epwt
 from rop import calcRop
 
-st.set_page_config(
-    page_title="Fronta.org: Data", layout="wide", initial_sidebar_state="expanded"
-)
+st.set_page_config(page_title="Fronta.org: Data", layout="wide")
 
 st.title("Fronta.org: Data")
 
